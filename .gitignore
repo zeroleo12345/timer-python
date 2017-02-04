@@ -1,12 +1,11 @@
-syntax: glob
-build\
+build/
 *.pyc
 *.sdf
 *.pyo
 *.ncb
 *.suo
 *.*~
-docs\_build\
+docs/_build/
 Debug
 Release
-src\src.vcproj*
+src/src.vcproj*
