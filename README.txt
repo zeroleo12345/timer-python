@@ -1,0 +1,44 @@
+`timer` is a C extension that provides a `Timer` class that operates similar
+to the `threading` module's `Timer` factory. Provided a duration in
+microseconds and a callable, the timer can be constructed and started.:
+
+   >>> callback = lambda: print("Time up!")
+   >>> t = timer.Timer(1000000, callback) # One second timer
+   >>> t.start()
+   Time up!
+
+`Timer` objects can also be constructed with optional arguments and keyword
+arguments to be passed to the callback.:
+
+   >>> def callback(*args, **kwargs):
+   ...     print(args, kwargs)
+   ...
+   >>> t = timer.Timer(1000000, callback, 1, 2, 3, hurf="durf")
+   >>> t.start()
+   (1, 2, 3) {'hurf': 'durf'}
+
+`Timer` objects provide microsecond resolution when stopped. The value is
+returned from the `stop` method, and also available in the `elapsed`
+attribute.:
+
+   >>> t = timer.Timer(10000000, callback) # Ten second timer
+   >>> t.start()
+   >>> # Call stop after about three seconds
+   >>> t.stop()
+   3534569
+   >>> # Close enough, that's 3.534569 seconds
+   >>> t.elapsed
+   3534569
+
+For an idea of how this works, check out the source code and/or read
+http://msdn.microsoft.com/en-us/magazine/cc163996.aspx. A number of Win32
+APIs are used to supplement
+`QueryPerformanceCounter <http://msdn.microsoft.com/en-us/library/ms644904(VS.85).aspx>`_
+to keep the timing high resolution and accurate.
+
+This is fairly stable but doesn't have a lot of tests and hasn't been used
+all that much. I've tested it on Python 3.1 and backported it to work with
+Python 2.7. It probably works from other versions but I haven't tried.
+
+Development occurs at https://bitbucket.org/briancurtin/timer.
+

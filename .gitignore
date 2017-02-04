@@ -1,0 +1,12 @@
+syntax: glob
+build\
+*.pyc
+*.sdf
+*.pyo
+*.ncb
+*.suo
+*.*~
+docs\_build\
+Debug
+Release
+src\src.vcproj*
