@@ -1,7 +1,10 @@
 # timer-python
 base on: https://bitbucket.org/briancurtin/timer/ and https://pypi.python.org/pypi/timer/
+
 just build for python-x64 version. only test on win7-x64, python27-x64.
+
 official just provide python-win32 version.
+
 ```
 1. build _timer.pyd
 env: win7-x64, python27-x64
