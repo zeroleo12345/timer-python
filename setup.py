@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+#coding:utf-8
 from distutils.core import setup, Extension
 
 setup(name             = "timer",
@@ -21,5 +23,5 @@ setup(name             = "timer",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.1",
         "Programming Language :: Python :: 3.2"],
-      long_description = open("README.txt").read()
+      long_description = open("USAGE.txt").read()
 )
